@@ -12,18 +12,18 @@ function Card() {
 
  
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="flex flex-col  lg:grid lg:grid-cols-3 gap-4">
       {data.map((item, index) => (
         <div key={index}>
-          <div className="w-60 relative">
-            <img
-              className="rounded-xl"
-              src={item.image.desktop}
-              alt={item.name}
-            />
+          <div className="w-72 lg:w-60 relative">
+          <picture>
+              <source media="(min-width: 1024px)" srcSet={item.image.desktop} />
+              <source media="(min-width: 768px)" srcSet={item.image.tablet} />
+              <img className="rounded-xl" src={item.image.mobile} alt={item.name} />
+            </picture>
 
             {isProductInCart(item) ? (
-              <button className="flex justify-between items-center absolute top-20 bottom-0 left-8 m-auto border rounded-full px-4 w-44 h-10 bg-orange-700">
+              <button className="flex justify-between items-center absolute top-8 left-14 lg:top-20 bottom-0 lg:left-8 m-auto border rounded-full px-4 w-44 h-10 bg-orange-700">
              
                 <svg
                   onClick={() => decrementQuantity(item)}
@@ -58,7 +58,7 @@ function Card() {
             ) : (
               <button
                 onClick={() => buyProducts(item)}
-                className="flex justify-center items-center absolute top-20 bottom-0 left-8 m-auto border border-gray-500 rounded-full px-8 h-10 bg-white gap-2 hover:border-orange-700 hover:text-orange-700"
+                className="flex justify-center items-center absolute top-8 left-14 lg:top-20 bottom-0 lg:left-8 m-auto border border-gray-500 rounded-full px-8 h-10 bg-white gap-2 hover:border-orange-700 hover:text-orange-700"
               >
                 <img src={carrito} alt="carrito" /> Add to Cart
               </button>

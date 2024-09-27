@@ -5,16 +5,16 @@ import Carrito from './Carrito'
 function Home() {
   return (
     <div className='bg-stone-100 p-12 '> 
-        <h1 className='text-3xl font-bold pb-6 relative' >Desserts</h1>
-        <div className='absolute m-auto left-[850px] rigth-0 top-14'>
-
-        <Carrito/>
-        </div>
+        <h1 className='text-3xl font-bold pb-6 lg:relative' >Desserts</h1>
         
-        <div className='flex justify-between'>
+        <div className='flex lg:justify-between justify-center md:justify-start'>
         <Card/>
         
         
+        </div>
+        <div className='relative md:absolute lg:absolute md:m-auto lg:m-auto md:left-[450px] lg:left-[850px] md:rigth-0  lg:rigth-0 md:top-10 lg:top-14'>
+
+        <Carrito/>
         </div>
 
        
